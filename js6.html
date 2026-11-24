@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Management</title>
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #eee;
+}
+.container {
+    background: white;
+    padding: 20px;
+    margin: 50px auto;
+    width: 350px;
+    border-radius: 10px;
+}
+input {
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+}
+button {
+    padding: 10px;
+    background: blue;
+    color: white;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Student Management System</h2>
+
+<input id="roll" placeholder="Roll Number">
+<input id="name" placeholder="Student Name">
+<input id="course" placeholder="Course">
+
+<button onclick="addStudent()">Add Student</button>
+
+<ul id="list"></ul>
+</div>
+
+<script>
+function addStudent() {
+    let roll = document.getElementById("roll").value;
+    let name = document.getElementById("name").value;
+    let course = document.getElementById("course").value;
+
+    if (!roll || !name || !course) {
+        alert("Fill all details!");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = roll + " - " + name + " - " + course;
+
+    document.getElementById("list").appendChild(li);
+
+    document.getElementById("roll").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("course").value = "";
+}
+</script>
+
+</body>
+</html>
